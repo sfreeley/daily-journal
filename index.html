@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/journal.css">
+    <h1>Daily Journal</h1>
+    <title>Daily Journal</title>
+    
+</head>
+
+<body>
+    <form action="" method="GET" class="flex-container">
+        <fieldset class="flex-item">
+            <label for="date">Date of Entry</label>
+            <input type="date" value="yyyy-MM-dd" id="date" name="date" width="40">
+        </fieldset>
+     
+        <fieldset class="flex-item">
+            <label for="concepts">Concepts covered</label>
+            <input type="text" id="concepts" name="concepts" width="40">
+        </fieldset>
+
+        <fieldset class="flex-item">
+            <label for="entry">Journal Entry</label>
+            <textarea id="entry" name="entry"></textarea>
+        </fieldset>
+
+        <fieldset class="flex-item">
+            <label for="mood">Mood for the day</label>
+            <select name="mood" id="mood"> 
+                <option value="happy">Happy</option>
+                <option value="angry">Angry</option>
+                <option value="excited">Excited</option>
+                <option value="depressed">Depressed</option>
+                <option value="hopeful">Hopeful</option>
+                <option value="discouraged">Discouraged</option>
+                <option value="appreciative">Appreciative</option>
+                <option value="frustrated">Frustrated</option>
+                <option value="ecstatic">Ecstatic</option>
+                <option value="nervous">Nervous</option>
+                <option value="optimistic">Optimistic</option>
+                <option value="aggravated">Aggravated</option>
+                <option value="determined">Determined</option>  
+                <option value="panicked">Panicked</option>
+                <option value="humbled">Humbled</option>
+                <option value="embarrassed">Embarrassed</option>
+                <option value="relieved">Relieved</option>
+            </select>
+        </fieldset>
+    </form>
+
+    <div>
+        <button type="submit">Record Journal Entry</button>
+    </div>
+    
+</body>
+</html>

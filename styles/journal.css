@@ -1,0 +1,29 @@
+
+.flex-container {
+    display: flex;
+    flex-direction: column; 
+}
+
+.flex-item {
+    padding: 10px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;  
+}
+
+input {
+    display: block;
+    width: 20%;
+    
+}
+
+textarea {
+    display: block;
+    width: 20%;
+}
+
+
+
