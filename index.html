@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/journal.css">
     <h1>Daily Journal</h1>
     <title>Daily Journal</title>
-    
+
 </head>
 
 <body>
@@ -15,7 +16,7 @@
             <label for="date">Date of Entry</label>
             <input type="date" value="yyyy-MM-dd" id="date" name="date" width="40">
         </fieldset>
-     
+
         <fieldset class="flex-item">
             <label for="concepts">Concepts covered</label>
             <input type="text" id="concepts" name="concepts" width="40">
@@ -28,7 +29,7 @@
 
         <fieldset class="flex-item">
             <label for="mood">Mood for the day</label>
-            <select name="mood" id="mood"> 
+            <select name="mood" id="mood">
                 <option value="happy">Happy</option>
                 <option value="angry">Angry</option>
                 <option value="excited">Excited</option>
@@ -41,7 +42,7 @@
                 <option value="nervous">Nervous</option>
                 <option value="optimistic">Optimistic</option>
                 <option value="aggravated">Aggravated</option>
-                <option value="determined">Determined</option>  
+                <option value="determined">Determined</option>
                 <option value="panicked">Panicked</option>
                 <option value="humbled">Humbled</option>
                 <option value="embarrassed">Embarrassed</option>
@@ -53,6 +54,13 @@
     <div>
         <button type="submit">Record Journal Entry</button>
     </div>
-    
+
+    <article class="entryLog">
+
+    </article>
+
+   
+    <script src="scripts/journal.js"></script>
 </body>
+
 </html>
