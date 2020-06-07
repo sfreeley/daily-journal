@@ -12,4 +12,3 @@ const journalConversion = (journalObject) => {
     `
     return journalHTMLRepresentation;
 }
-

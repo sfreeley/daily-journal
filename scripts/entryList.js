@@ -11,3 +11,4 @@ const entryLog = () => {
         journalArticleElement.innerHTML += journalHTML;
     }
 }
+
