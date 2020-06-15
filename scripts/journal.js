@@ -3,4 +3,7 @@
     defined in the other JavaScript files.
 */
 
-API.getJournalEntries().then(() => entryLog());
+import API from './data.js'
+import entryDOM from './entryList.js'
+
+API.getJournalEntries().then(() => entryDOM.entryLog());
