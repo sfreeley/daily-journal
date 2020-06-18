@@ -1,6 +1,6 @@
 //defining a factory function responsible for generating journal entry object
 
-const generateJournalEntry = (date, concepts, entry, mood) => {
+const createJournalEntry = (date, concepts, entry, mood) => {
     const journalEntryObject = {
         date,
         concepts,
@@ -11,4 +11,4 @@ const generateJournalEntry = (date, concepts, entry, mood) => {
 }
 
 
-export default generateJournalEntry;
+export default createJournalEntry;
