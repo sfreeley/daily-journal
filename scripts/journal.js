@@ -10,9 +10,7 @@ import generateJournalEntry from './createEntry.js'
 API.getJournalEntries().then(() => entryDOM.entryLog());
 
 
-//First step of recording the input data to the API with Save button functionality 
-//declaring variables for user input value
-
+//Steps of recording the input data to the API with Save button functionality and posting it to the DOM
 // target the save button
 const saveButton = document.querySelector(".submitButton");
 // add event Listener to save button to register user click
@@ -29,7 +27,7 @@ saveButton.addEventListener("click", clickEvent => {
     } else {
         console.log(dateInput, conceptsInput, entryInput, moodInput)
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
-        //invoking generateJournalEntry factory function and passing user's input values as arguments
+        //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
         const generateEntry = generateJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
         //passes in newly created journal object (based on user input value) to save it to the DOM
         API.saveJournalEntry(generateEntry)

@@ -34,20 +34,6 @@
       "entry": "We are trying to use fetch calls to GET data from the API database, and using POST to save the data to the API, then using both GET and POST asynchronously in the correct order and display them in the DOM; we learned about various ways to manipulate arrays, including map, filter, include, forEach...",
       "mood": "hopeful",
       "id": 5
-    },
-    {
-      "date": "2020-06-16",
-      "concepts": "dfdf",
-      "entry": "fdfd",
-      "mood": "panicked",
-      "id": 6
-    },
-    {
-      "date": "2020-06-09",
-      "concepts": "fdfd",
-      "entry": "fdfdf",
-      "mood": "nervous",
-      "id": 7
     }
   ]
 }
