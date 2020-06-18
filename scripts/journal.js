@@ -6,7 +6,7 @@
 import API from './data.js'
 import entryDOM from './entryList.js'
 import createJournalEntry from './createEntry.js'
-//this will get the original four entries from the API and once info received will render them to DOM
+//this will get the entries from API and once info received will render them to DOM
 API.getJournalEntries().then(() => entryDOM.entryLog());
 
 //Steps of recording the input data to the API with Save button functionality and posting it to the DOM
