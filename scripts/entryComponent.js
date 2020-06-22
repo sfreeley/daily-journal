@@ -4,6 +4,7 @@ This module is responsible for representing the HTML code that will go on the DO
 const journalRepresentation = {
     journalConversion (journalObject) {
         return `
+        <hr>
         <div class="entryLog__components">
             <ul>
                 <li> <strong>Date:</strong> ${journalObject.date}</li>
@@ -12,6 +13,7 @@ const journalRepresentation = {
                 <li> <strong>Entry:</strong> ${journalObject.entry}</li>
             </ul>
         </div>
+        <hr>
         `
     }
 }

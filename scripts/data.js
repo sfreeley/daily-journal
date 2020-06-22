@@ -1,6 +1,8 @@
 // Purpose: 
 // This module contains a method to make a fetch call to get journal entries
 
+import displayMoodEntries from "./filter.js";
+
 
 const API = {
     journalEntries: [],
@@ -18,7 +20,20 @@ const API = {
             },
             body: JSON.stringify(newEntryObject)
         })
+    },
+// ??? ???
+    showFilterMood () {
+        return fetch("http://localhost:3000/entries")
+        .then(response => response.json()).then( (journalEntryArray) => {
+            journalEntryArray.filter(entry => {
+                if (displayMoodEntries.userMoodChoice === entry.mood) {
+                    this.journalEntries = entry
+                }
+        })
+        
+    })
     }
+
 }
 
 export default API;
