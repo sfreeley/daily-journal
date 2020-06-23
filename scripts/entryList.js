@@ -7,7 +7,7 @@ import journalRepresentation from './entryComponent.js'
 const entryDOM = {
     entryLog(entryArray) {
        
-            //loop through the journalEntries array in order to display all the individual journal entries to the DOM;
+            //loop through the journal array in order to display all the individual journal entries to the DOM;
             for (const currentJournalObject of entryArray) {
     
                 // calling the journalConversion function and running the individual objects as arguments
