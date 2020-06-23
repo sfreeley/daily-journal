@@ -1,31 +1,58 @@
 import API from './data.js'
-import entryDOM from './entryList.js'
+// import entryDOM from './entryList.js'
 
 let userMoodChoice;
 const displayMoodEntries = {
-    // userMoodChoice : "",
+    
     clearEntryLog () {
+        
         const clearEntry = document.querySelector(".entryLog")
         clearEntry.innerHTML = "";
+        console.log("It's working")
     },
-
-    addMoodEventListener (inputName) {
+//???
+    addMoodEventListener () {
         const moodListener = document.getElementsByName("radioMood")
-        for (inputName of moodListener) {
-            inputName.addEventListener("click", clickEvent => {
-            userMoodChoice = clickEvent.target.value
-            this.clearEntryLog();
-            API.showFilterMood().then(() => entryDOM.entryLog())
-            })
-         }
-             
-     }         
+        moodListener.forEach(button => {
+            button.addEventListener("click", clickEvent => {
+                userMoodChoice = clickEvent.target.value;
+                console.log(userMoodChoice);
 
-}
-        
-        
+                API.getJournalEntries().then((response) => {
+                    let filteredMoodChoice = response.filter(filteredMood => {
+                        return filteredMood === userMoodChoice
+                    })
+                    // clearEntryLog();
+                    const showMoodEntry = document.querySelector(".entryLog")
+                    showMoodEntry.innerHTML = filteredMoodChoice
+        }) 
+            
+        })
        
+        })
+        }
+           
+       
+
+    }
+
         
+        
+    // let journalData = [];
+            
+            // API.getJournalEntries().then(entries => {
+            //     journalData = entries
+            //     console.log("response from fetch call", entries)
+            // })
+            
+            // console.log(journalData)
+            // const filteredArray = journalData.filter(entry => {
+            //     return entry.mood === userMoodChoice
+            // })
+       
+
+        // console.log("this is filtered array", filteredArray)    
+// API.showFilterMood()     
     
 
     // addMoodFilter () {

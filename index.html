@@ -12,7 +12,10 @@
 </head>
 
 <body>
+    </section>
     <form action="" method="GET" class="flex-container">
+        <input type="hidden" id="entryId" value=""/>
+
         <fieldset class="flex-item">
             <label class="inputLabel" for="date">Date of Entry</label>
             <input type="date" value="yyyy-MM-dd" id="date" name="date" width="40">
@@ -42,9 +45,7 @@
                 <option class="optionChoice" value="ecstatic">Ecstatic</option>
                 <option class="optionChoice" value="nervous">Nervous</option>
                 <option class="optionChoice" value="optimistic">Optimistic</option>
-                <option class="optionChoice" value="aggravated">Aggravated</option>
                 <option class="optionChoice" value="determined">Determined</option>
-                <option class="optionChoice" value="panicked">Panicked</option>
                 <option class="optionChoice" value="humbled">Humbled</option>
                 <option class="optionChoice" value="embarrassed">Embarrassed</option>
                 <option class="optionChoice" value="relieved">Relieved</option>
@@ -54,6 +55,7 @@
 
     <div>
         <button class="submitButton" type="submit">Record Journal Entry</button>
+        <button id="saveEdit" >Save Edit</button>
     </div>
 
 
@@ -90,8 +92,8 @@
             <input type="radio" id="filterMood--ecstatic" name="radioMood" value="ecstatic"> 
             <label for="filterMood">Ecstatic</label>
 
-            <input class="inputRadio" type="radio" id="filterMood--humbled" name="radioMood" value="humbled"> 
-            <label for="filterMood">Humbled</label>
+            <input class="inputRadio" type="radio" id="filterMood--nervous" name="radioMood" value="nervous"> 
+            <label for="filterMood">Nervous</label>
 
             <input class="inputRadio" type="radio" id="filterMood--optimistic" name="radioMood" value="optimistic"> 
             <label for="filterMood">Optimistic</label>

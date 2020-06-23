@@ -7,11 +7,11 @@ import API from './data.js'
 import entryDOM from './entryList.js'
 import createJournalEntry from './createEntry.js'
 import displayMoodEntries from './filter.js'
+import events from './events.js'
+
 
 //this will get the entries from API and once info received will render them to DOM
-API.getJournalEntries().then(() => entryDOM.entryLog());
-
-
+API.getJournalEntries().then(() => entryDOM.entryLog(API.journalEntries))
 
 // const showDetails = () => {
 //     document.querySelector(".entryLog").style.display = "block";
@@ -28,21 +28,6 @@ const conceptFieldMaxLength = () => {
     })
 }
 conceptFieldMaxLength();
-
-// function to make sure concepts and entry fields do not contain curse words
-// const filterInput = () => {
-//     // const conceptField = document.querySelector("#concepts")
-//     saveButton.addEventListener("click", inputEvent => {
-//     // g is modifier = keep looking through string of text
-//     // i is modifier = means case insensitive, will not matter if capitalized or not 
-//     let badWords = /damn/gi
-//     const conceptFieldValue = document.querySelector(".entryLog")
-//     const conceptFieldReplace = conceptFieldValue.replace(badWords, "****")
-//     conceptFieldValue = conceptFieldReplace;
-// })
-    
-// }
-// filterInput();
 
 //Steps of recording the input data to the API with Save button functionality and posting it to the DOM
 
@@ -74,8 +59,12 @@ saveButton.addEventListener("click", clickEvent => {
         });
     }      
 });
-
+//invoking filtering by mood radio button NOTWORKING
 displayMoodEntries.addMoodEventListener()
-    
 
+//invoking of method attaching event listener for delete button
+events.registerListener()
+
+//invoke save button functionality
+events.saveButtonFunction();
 

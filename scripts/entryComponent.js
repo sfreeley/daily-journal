@@ -13,6 +13,8 @@ const journalRepresentation = {
                 <li> <strong>Entry:</strong> ${journalObject.entry}</li>
             </ul>
         </div>
+        <button id="editEntry--${journalObject.id}">Edit</button>
+        <button id="deleteEntry--${journalObject.id}">Delete Entry</button>
         <hr>
         `
     }

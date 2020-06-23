@@ -1,39 +1,41 @@
 // Purpose: 
 // This module contains a method to make a fetch call to get journal entries
 
-import displayMoodEntries from "./filter.js";
-
-
+ 
 const API = {
     journalEntries: [],
     // this is the GET function that gets all entries from API
     getJournalEntries () {
-        return fetch("http://localhost:3000/entries")
-            .then(response => response.json()).then( (journalEntryArray) => this.journalEntries = journalEntryArray);
+        return fetch("http://localhost:8088/entries")
+            .then(response => {return response.json()})
+            .then(journalArray => this.journalEntries = journalArray)
     },
     // this is POST function that saves your object to the API and will take in a journal entry object created by factory function)
     saveJournalEntry (newEntryObject) {
-        return fetch("http://localhost:3000/entries", {
+        return fetch("http://localhost:8088/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newEntryObject)
-        })
+        }).then(response => response.json())
     },
-// ??? ???
-    showFilterMood () {
-        return fetch("http://localhost:3000/entries")
-        .then(response => response.json()).then( (journalEntryArray) => {
-            journalEntryArray.filter(entry => {
-                if (displayMoodEntries.userMoodChoice === entry.mood) {
-                    this.journalEntries = entry
-                }
+    deleteJournalEntry (journalEntryId) {
+        return fetch(`http://localhost:8088/entries/${journalEntryId}`, {
+            method: "DELETE"
         })
-        
-    })
+        .then(response => response.json())
+    },
+    updateJournalEntry (journalEntryId, journalObj) {
+        return fetch(`http://localhost:8088/entries/${journalEntryId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(journalObj)
+            })
+        }
     }
 
-}
 
 export default API;
