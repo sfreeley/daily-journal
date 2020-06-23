@@ -55,12 +55,13 @@ saveButton.addEventListener("click", clickEvent => {
         });
     }      
 });
-//invoking filtering by mood radio button NOTWORKING
+//invoking filtering by mood radio button
 displayMoodEntries.addMoodEventListener()
 
-//invoking of method attaching event listener for delete button
+//invoking of method attaching event listener for delete button, which inside that function invokes deleting the entry based on entry ID, 
+//then getting journal entries again and rending them to the DOM 
 events.registerListener()
 
-//invoke save button functionality
+//invoke save button functionality which will then see if user is editing the fields; once they click save it will then save all the new user input in DOM
 events.saveButtonFunction();
 

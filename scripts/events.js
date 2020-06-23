@@ -16,13 +16,14 @@ export default {
 
                 //invoking delete method from API module and passing in the entry id so it knows which one to delete, 
                 API.deleteJournalEntry(entryToDelete)
-                // get all entries and render them to DOM
+                // get all entries again and render them to DOM
                 .then(API.getJournalEntries())
                 .then(entryDOM.entryLog(API.journalEntries))
-                //else if edit button functionality clicked
+                //else if edit button functionality clicked ad has id that starts with "edit..."
             } else if (clickEvent.target.id.startsWith("editEntry--")) {
+                //turn the string into array with .split() and separate by the "--"; in array "--" will be the first index and therefore must specify the index 
                         const entryToEdit = clickEvent.target.id.split("--")[1]
-                        //invoking updateforms module to set value of input fields to user input; this will take in an argument of the entry id so it knows which one to edit 
+                        //invoking updateforms module to set value of input fields to user input; this will take in an argument of the entry id (from above) so it knows which one to edit 
                         updateFormFields(entryToEdit)
                     }
                 })
@@ -38,20 +39,26 @@ export default {
 
         //save button functionality
         saveButtonFunction () {
+            //target save Edit button
             const saveEditButton = document.querySelector("#saveEdit")
+            //add event listener to save Edit button
             saveEditButton.addEventListener("click", clickEvent => {
+                //targeting the hidden input field that houses entry id 
                 const hiddenEntryId = document.querySelector("#entryId")
-
+                //if the hidden input field is not empty, that means user will be making an edit; the new input will be the value of whatever input the user will change it to 
                 if (hiddenEntryId.value !== "") {
                     const newDateInput = document.querySelector("#date").value;
                     const newConceptsInput = document.querySelector("#concepts").value;
                     const newEntryInput = document.querySelector("#entry").value;
                     const newMoodInput = document.querySelector("#mood").value;
-
+                    //invoke the update journal entry function (from data.js) that will take in journalobject's ID value and our create new journal object function (from createEntry.js) as arguments
+                    //which will itself will take in the new user edited input (ie newDateinput...) 
                     API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(newDateInput, newConceptsInput, newEntryInput, newMoodInput))
                         .then(() => {
+                            //clear all inputs fields
                             this.clearInputFields();
-                            entryDOM.entryLog(API.journalEntries)
+                            //display the edited entry
+                            entryDOM.entryLog()
                         })
                 } else {
                     alert("To use edit save, you must fill out all fields")
