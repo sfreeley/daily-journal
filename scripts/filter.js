@@ -1,7 +1,8 @@
 import API from './data.js'
-// import entryDOM from './entryList.js'
+import entryDOM from './entryList.js'
 
-let userMoodChoice;
+let userMoodChoice ="";
+let filteredArray;
 const displayMoodEntries = {
     
     clearEntryLog () {
@@ -11,30 +12,31 @@ const displayMoodEntries = {
         console.log("It's working")
     },
 //???
-    addMoodEventListener () {
+    addMoodEventListener() {
+
         const moodListener = document.getElementsByName("radioMood")
         moodListener.forEach(button => {
             button.addEventListener("click", clickEvent => {
                 userMoodChoice = clickEvent.target.value;
                 console.log(userMoodChoice);
 
-                API.getJournalEntries().then((response) => {
-                    let filteredMoodChoice = response.filter(filteredMood => {
-                        return filteredMood === userMoodChoice
-                    })
-                    // clearEntryLog();
-                    const showMoodEntry = document.querySelector(".entryLog")
-                    showMoodEntry.innerHTML = filteredMoodChoice
-        }) 
-            
-        })
-       
-        })
-        }
-           
-       
+                const journalData = API.journalEntries
+                filteredArray = journalData.filter(entry => {
+                    return userMoodChoice === entry.mood
+                })
+                console.log(filteredArray)
+                this.clearEntryLog();
+                entryDOM.entryLog(filteredArray)
 
+
+            })
+
+        })
     }
+
+
+
+}
 
         
         

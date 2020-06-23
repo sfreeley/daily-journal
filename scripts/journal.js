@@ -13,10 +13,6 @@ import events from './events.js'
 //this will get the entries from API and once info received will render them to DOM
 API.getJournalEntries().then(() => entryDOM.entryLog(API.journalEntries))
 
-// const showDetails = () => {
-//     document.querySelector(".entryLog").style.display = "block";
-//   }
-
 // function to give user alert if they type in more than 50 characters into concept field
 const conceptFieldMaxLength = () => {
     const conceptField = document.querySelector("#concepts")
@@ -54,8 +50,8 @@ saveButton.addEventListener("click", clickEvent => {
         () => {
         return API.getJournalEntries()
         })
-        .then((allAPIObj) => {
-        entryDOM.entryLog(allAPIObj)
+        .then(() => {
+        entryDOM.entryLog(API.journalEntries)
         });
     }      
 });
