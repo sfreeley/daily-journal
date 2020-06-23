@@ -2,16 +2,17 @@ import API from './data.js'
 import entryDOM from './entryList.js'
 
 let userMoodChoice ="";
-let filteredArray;
+let filteredMoodArray;
+
 const displayMoodEntries = {
-    
-    clearEntryLog () {
-        
+
+    clearEntryLog() {
+
         const clearEntry = document.querySelector(".entryLog")
         clearEntry.innerHTML = "";
-        console.log("It's working")
+        console.log("It's working to clear")
     },
-//???
+    //???
     addMoodEventListener() {
 
         const moodListener = document.getElementsByName("radioMood")
@@ -20,13 +21,12 @@ const displayMoodEntries = {
                 userMoodChoice = clickEvent.target.value;
                 console.log(userMoodChoice);
 
-                const journalData = API.journalEntries
-                filteredArray = journalData.filter(entry => {
+                filteredMoodArray = API.journalEntries.filter(entry => {
                     return userMoodChoice === entry.mood
                 })
-                console.log(filteredArray)
+                console.log(filteredMoodArray)
                 this.clearEntryLog();
-                entryDOM.entryLog(filteredArray)
+                entryDOM.entryLog(filteredMoodArray)
 
 
             })

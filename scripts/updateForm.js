@@ -7,7 +7,7 @@ const updateFormFields = (journalEntryId) => {
     const editEntryInput = document.querySelector("#entry");
     const editMoodInput = document.querySelector("#mood");
 
-    fetch(`http://localhost:8088/entries/${journalEntryId}`)
+    fetch(`http://localhost:3000/entries/${journalEntryId}`)
     .then(response => response.json())
     .then(entry => {
         hiddenEntryId.value = entry.id
