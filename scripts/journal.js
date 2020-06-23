@@ -6,10 +6,27 @@
 import API from './data.js'
 import entryDOM from './entryList.js'
 import createJournalEntry from './createEntry.js'
+import displayMoodEntries from './filter.js'
+import events from './events.js'
+
+
 //this will get the entries from API and once info received will render them to DOM
-API.getJournalEntries().then(() => entryDOM.entryLog());
+API.getJournalEntries().then(() => entryDOM.entryLog(API.journalEntries))
+
+// function to give user alert if they type in more than 50 characters into concept field
+const conceptFieldMaxLength = () => {
+    const conceptField = document.querySelector("#concepts")
+    conceptField.addEventListener("input", inputEvent => {
+        const conceptFieldValue = document.querySelector("#concepts").value
+        if (conceptFieldValue.length > 50) {
+            alert("Maximum characters allowed: 50")
+        }
+    })
+}
+conceptFieldMaxLength();
 
 //Steps of recording the input data to the API with Save button functionality and posting it to the DOM
+
 // target the save button
 const saveButton = document.querySelector(".submitButton");
 // add event Listener to save button to register user click
@@ -24,7 +41,6 @@ saveButton.addEventListener("click", clickEvent => {
     || entryInput === "" || moodInput === "") {
         alert("All fields must be filled in before clicking 'Record Journal Entry'")
     } else {
-        console.log(dateInput, conceptsInput, entryInput, moodInput)
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
         //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
         const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
@@ -34,14 +50,18 @@ saveButton.addEventListener("click", clickEvent => {
         () => {
         return API.getJournalEntries()
         })
-        .then((allAPIObj) => {
-        entryDOM.entryLog(allAPIObj)
-        })
+        .then(() => {
+        entryDOM.entryLog(API.journalEntries)
+        });
     }      
 });
+//invoking filtering by mood radio button
+displayMoodEntries.addMoodEventListener()
 
+//invoking of method attaching event listener for delete button, which inside that function invokes deleting the entry based on entry ID, 
+//then getting journal entries again and rending them to the DOM 
+events.registerListener()
 
-    
-    
-
+//invoke save button functionality which will then see if user is editing the fields; once they click save it will then save all the new user input in DOM
+events.saveButtonFunction();
 

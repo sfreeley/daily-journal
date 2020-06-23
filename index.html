@@ -5,30 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/journal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <h1>Daily Journal</h1>
     <title>Daily Journal</title>
 
 </head>
 
 <body>
+    </section>
     <form action="" method="GET" class="flex-container">
+        <input type="hidden" id="entryId" value=""/>
+
         <fieldset class="flex-item">
-            <label for="date">Date of Entry</label>
+            <label class="inputLabel" for="date">Date of Entry</label>
             <input type="date" value="yyyy-MM-dd" id="date" name="date" width="40">
         </fieldset>
 
         <fieldset class="flex-item">
-            <label for="concepts">Concepts covered</label>
-            <input type="text" id="concepts" name="concepts" width="40">
+            <label class="inputLabel" for="concepts">Concepts covered</label>
+            <input type="text" id="concepts" name="concepts" width="40" maxlength="50">
         </fieldset>
 
         <fieldset class="flex-item">
-            <label for="entry">Journal Entry</label>
+            <label class="inputLabel" for="entry">Journal Entry</label>
             <textarea id="entry" name="entry"></textarea>
         </fieldset>
 
         <fieldset class="flex-item">
-            <label for="mood">Mood for the day</label>
+            <label class="inputLabel" for="mood">Mood for the day</label>
             <select name="mood" id="mood">
                 <option class="optionChoice" value="happy">Happy</option>
                 <option class="optionChoice" value="angry">Angry</option>
@@ -41,9 +45,7 @@
                 <option class="optionChoice" value="ecstatic">Ecstatic</option>
                 <option class="optionChoice" value="nervous">Nervous</option>
                 <option class="optionChoice" value="optimistic">Optimistic</option>
-                <option class="optionChoice" value="aggravated">Aggravated</option>
                 <option class="optionChoice" value="determined">Determined</option>
-                <option class="optionChoice" value="panicked">Panicked</option>
                 <option class="optionChoice" value="humbled">Humbled</option>
                 <option class="optionChoice" value="embarrassed">Embarrassed</option>
                 <option class="optionChoice" value="relieved">Relieved</option>
@@ -53,13 +55,59 @@
 
     <div>
         <button class="submitButton" type="submit">Record Journal Entry</button>
+        <button id="saveEdit" >Save Edit</button>
     </div>
+
+
+    <fieldset class="flex-container--radioButtons">
+        <legend>Filter Journal Entries by Mood:</legend>
+        <div class="radioButtons">
+            <input class="inputRadio" type="radio" id="filterMood--happy" name="radioMood" value="happy"> 
+            <label for="filterMood">Happy</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--hopeful" name="radioMood" value="hopeful"> 
+            <label for="filterMood">Hopeful</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--frustrated" name="radioMood" value="frustrated"> 
+            <label for="filterMood">Frustrated</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--excited" name="radioMood" value="excited"> 
+            <label for="filterMood">Excited</label>
+
+            <input class="inputRadio"type="radio" id="filterMood--depressed" name="radioMood" value="depressed"> 
+            <label for="filterMood">Depressed</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--angry" name="radioMood" value="angry"> 
+            <label for="filterMood">Angry</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--determined" name="radioMood" value="determined"> 
+            <label for="filterMood">Determined</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--appreciative" name="radioMood" value="appreciative"> 
+            <label for="filterMood">Appreciative</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--discouraged" name="radioMood" value="discouraged"> 
+            <label for="filterMood">Discouraged</label>
+
+            <input type="radio" id="filterMood--ecstatic" name="radioMood" value="ecstatic"> 
+            <label for="filterMood">Ecstatic</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--nervous" name="radioMood" value="nervous"> 
+            <label for="filterMood">Nervous</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--optimistic" name="radioMood" value="optimistic"> 
+            <label for="filterMood">Optimistic</label>
+
+            <input class="inputRadio" type="radio" id="filterMood--humbled" name="radioMood" value="humbled"> 
+            <label for="filterMood">Humbled</label>
+        </div>
+    </fieldset>
 
     <article class="entryLog">
 
     </article>
 
-   
+    <!-- style="display:none;" -->
     <script type="module" src="scripts/journal.js"></script>
 </body>
 
