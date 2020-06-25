@@ -18,8 +18,7 @@ const updateFormFields = (journalEntryId) => {
         editDateInput.value = entry.date
         editConceptsInput.value = entry.concepts
         editEntryInput.value = entry.entry
-        editMoodInput.value = entry.mood
-        console.log("it's working so far")
+        editMoodInput.value = entry.mood 
     })
 }
 
