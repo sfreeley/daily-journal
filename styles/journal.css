@@ -1,41 +1,53 @@
-/* .hidden {
-    display:none;
-} */
+:root {
+    --padding: 10px;
+    --text-color: whitesmoke;
+    --font-family: 'Nanum Gothic', sans-serif;
+    --border: 2px double hsla(168, 4%, 78%, 0.74);
+    --background-color: #f9d5bb;
+    --container-background-color: hsla(0, 9%, 33%, 0.801);
+    --button-background-color: hsla(0, 59%, 58%, 0.74);
+}
 
 body {
-    /* background-image: url(../images/typewriter.jpg); */
-    /* color: whitesmoke; */
-    font-family: 'Nanum Gothic', sans-serif;
+    background-image: url(../images/typewriter.jpg);
+    color: var(--text-color);    
+    font-family: var(--font-family);
+    background-color: var(--background-color);
    
 }
 .flex-container {
     display: flex;
     flex-direction: column; 
-    border: 4px solid #342b38;
-    background-color: hsla(0, 0%, 96%, 0.74);
-    color: black;
-   
+    border: var(--border);
+    background-color: var(--container-background-color);
+    color: var(--text-color);
 }
 
 .flex-item {
-    padding: 10px;
+    padding: var(--padding);
 }
 
 .flex-container--radioButtons {
     display: flex;
-    align-items: center;
-    border: solid 4px #342b38;
-    background-color: hsla(0, 0%, 96%, 0.74);
-    color: black;
+    font-weight: bold;
+    border: var(--border);
+    background-color: var(--container-background-color);
+    color: var(--text-color);
 }
 
-/* .radioButtons {
+.radioButtons {
+    display:flex;
     flex-wrap: wrap;
-} */
+    justify-content: center;
+}
 
 .inputRadio {
-    flex-wrap: wrap;
+    padding: var(--padding);
     align-items: center;
+}
+
+.radioLabel {
+    padding: 7px;
 }
 
 .inputLabel {
@@ -51,20 +63,21 @@ textarea {
 }
 
 .entryLog {
-    border: solid 4px #342b38;
-    background-color: hsla(0, 0%, 96%, 0.74);
-    color: black;
+    border: var(--border);
+    background-color: var(--container-background-color);
+    color: var(--text-color);
     height: 100vh;
     overflow-y: scroll;
     margin: 5px;
     
 }
 
-.submitButton {
-    background-color: #ca5116;
+.submitButton, .saveButton  {
+    background-color: var(--button-background-color);
     margin: 10px;
-    padding: 10px;
-    font-family: 'Nanum Gothic', sans-serif;
+    padding: var(--padding);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px;
 }
 
 

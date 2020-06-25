@@ -41,6 +41,13 @@
       "entry": "We learned the steps to add edit functionality in our daily journal project. If I have learned one thing this week, it is that I will never take filling forms out online for granted... ever again. ",
       "mood": "excited",
       "id": 6
+    },
+    {
+      "date": "2020-06-23",
+      "concepts": "CSS Variables and Modules",
+      "entry": "We can use variables and modules to break up CSS code; ie if using repeating styles and colors, can define these as variables as use them on specified CSS selectors ",
+      "mood": "relieved",
+      "id": 7
     }
   ]
 }

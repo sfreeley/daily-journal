@@ -25,34 +25,51 @@ const conceptFieldMaxLength = () => {
 }
 conceptFieldMaxLength();
 
-//Steps of recording the input data to the API with Save button functionality and posting it to the DOM
+//Steps of recording the input data to the API with Save button functionality and posting it to the DOM AND
+//using same button for edit submission
 
 // target the save button
 const saveButton = document.querySelector(".submitButton");
 // add event Listener to save button to register user click
 saveButton.addEventListener("click", clickEvent => {
+    
     // assigning variables to user input value for each field in form
     const dateInput = document.querySelector("#date").value;
     const conceptsInput = document.querySelector("#concepts").value;
     const entryInput = document.querySelector("#entry").value;
     const moodInput = document.querySelector("#mood").value;
+    
+    //targeting the hidden input field that houses entry id 
+    const hiddenEntryId = document.querySelector("#entryId")
+    
     // conditional statement to ensure no blank entries for any input field 
     if (dateInput === "" || conceptsInput === "" 
     || entryInput === "" || moodInput === "") {
         alert("All fields must be filled in before clicking 'Record Journal Entry'")
+    } else if (hiddenEntryId.value !== "") {
+    
+    //invoke the update journal entry function (from data.js) that will take in journalobject's ID value and our create new journal object function (from createEntry.js) as arguments
+    //which will itself will take in the new user edited input (ie newDateinput...) 
+        API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput))
+            .then(() => {
+                //clear all inputs fields
+                this.clearInputFields();
+                //display the edited entry
+                entryDOM.entryLog()
+            })
     } else {
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
         //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
         const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
         //passes in newly created journal object (based on user input value) to save it to the DOM
         API.saveJournalEntry(generateEntry)
-        .then(
-        () => {
-        return API.getJournalEntries()
-        })
-        .then(() => {
-        entryDOM.entryLog(API.journalEntries)
-        });
+        // .then(
+        // () => {
+        // return API.getJournalEntries()
+        // })
+        // .then(() => {
+        // entryDOM.entryLog(API.journalEntries)
+        // });
     }      
 });
 //invoking filtering by mood radio button
@@ -62,6 +79,4 @@ displayMoodEntries.addMoodEventListener()
 //then getting journal entries again and rending them to the DOM 
 events.registerListener()
 
-//invoke save button functionality which will then see if user is editing the fields; once they click save it will then save all the new user input in DOM
-events.saveButtonFunction();
 
