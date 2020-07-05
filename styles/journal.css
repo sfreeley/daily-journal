@@ -33,12 +33,24 @@ body {
     border: var(--border);
     background-color: var(--container-background-color);
     color: var(--text-color);
+    width: 40%;
+}
+
+.flex-container--searchField {
+    display: flex;
+    
+    font-weight: bold;
+    border: var(--border);
+    background-color: var(--container-background-color);
+    color: var(--text-color);
+    width: 40%;
 }
 
 .radioButtons {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 .inputRadio {
@@ -72,7 +84,7 @@ textarea {
     
 }
 
-.submitButton, .saveButton  {
+.submitButton {
     background-color: var(--button-background-color);
     margin: 10px;
     padding: var(--padding);
@@ -80,6 +92,13 @@ textarea {
     box-shadow: 5px 5px 5px;
 }
 
+.search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+
+}
 
 
 

@@ -49,7 +49,7 @@ saveButton.addEventListener("click", clickEvent => {
     } else if (hiddenEntryId.value !== "") {
     
     //invoke the update journal entry function (from data.js) that will take in journalobject's ID value and our create new journal object function (from createEntry.js) as arguments
-    //which will itself will take in the new user edited input (ie newDateinput...) 
+    //which will itself take in the new user edited input 
         API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput))
             .then(() => {
                 //clear all inputs fields
@@ -76,7 +76,7 @@ saveButton.addEventListener("click", clickEvent => {
 displayMoodEntries.addMoodEventListener()
 
 //invoking of method attaching event listener for delete button, which inside that function invokes deleting the entry based on entry ID, 
-//then getting journal entries again and rending them to the DOM 
+//then getting journal entries again and rendering them to the DOM 
 events.registerListener()
 
 
