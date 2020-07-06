@@ -73,10 +73,16 @@ saveButton.addEventListener("click", clickEvent => {
     }      
 });
 //invoking filtering by mood radio button
-displayMoodEntries.addMoodEventListener()
+displayMoodEntries.addMoodEventListener();
 
 //invoking of method attaching event listener for delete button, which inside that function invokes deleting the entry based on entry ID, 
 //then getting journal entries again and rendering them to the DOM 
-events.registerListener()
+events.registerListener();
+
+//invoking searchField method to search for values
+displayMoodEntries.searchField()
+
+
+
 
 

@@ -27,6 +27,14 @@ body {
     padding: var(--padding);
 }
 
+.container-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
 .flex-container--radioButtons {
     display: flex;
     font-weight: bold;
@@ -38,19 +46,25 @@ body {
 
 .flex-container--searchField {
     display: flex;
-    
     font-weight: bold;
     border: var(--border);
     background-color: var(--container-background-color);
     color: var(--text-color);
+    height: 60%;
     width: 40%;
+    align-self: center;
 }
+
 
 .radioButtons {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     
+}
+
+.searchInput {
+    width: 100%;
 }
 
 .inputRadio {
@@ -92,13 +106,7 @@ textarea {
     box-shadow: 5px 5px 5px;
 }
 
-.search {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    
 
-}
 
 
 
