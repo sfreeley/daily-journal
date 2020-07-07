@@ -49,34 +49,43 @@ saveButton.addEventListener("click", clickEvent => {
     } else if (hiddenEntryId.value !== "") {
     
     //invoke the update journal entry function (from data.js) that will take in journalobject's ID value and our create new journal object function (from createEntry.js) as arguments
-    //which will itself will take in the new user edited input (ie newDateinput...) 
+    //which will itself take in the new user edited input 
         API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput))
             .then(() => {
+               return API.getJournalEntries() 
+            }).then((response) => {
                 //clear all inputs fields
-                this.clearInputFields();
+                events.clearInputFields();
                 //display the edited entry
-                entryDOM.entryLog()
+                return entryDOM.entryLog(response)
             })
+        
     } else {
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
         //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
         const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
         //passes in newly created journal object (based on user input value) to save it to the DOM
         API.saveJournalEntry(generateEntry)
-        // .then(
-        // () => {
-        // return API.getJournalEntries()
-        // })
-        // .then(() => {
-        // entryDOM.entryLog(API.journalEntries)
-        // });
+         .then(
+         () => {
+         return API.getJournalEntries()
+         })
+         .then(() => {
+         entryDOM.entryLog(API.journalEntries)
+         });
     }      
 });
 //invoking filtering by mood radio button
-displayMoodEntries.addMoodEventListener()
+displayMoodEntries.addMoodEventListener();
 
 //invoking of method attaching event listener for delete button, which inside that function invokes deleting the entry based on entry ID, 
-//then getting journal entries again and rending them to the DOM 
-events.registerListener()
+//then getting journal entries again and rendering them to the DOM 
+events.registerListener();
+
+//invoking searchField method to search for values
+displayMoodEntries.searchField()
+
+
+
 
 

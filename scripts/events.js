@@ -1,6 +1,7 @@
 import API from './data.js'
 import entryDOM from './entryList.js'
 import updateFormFields from './updateForm.js'
+import displayMoodEntries from './filter.js'
 
 
 //Module for add event listeners 
@@ -17,8 +18,14 @@ export default {
                 //invoking delete method from API module and passing in the entry id so it knows which one to delete, 
                 API.deleteJournalEntry(entryToDelete)
                 // get all entries again and render them to DOM
-                .then(API.getJournalEntries())
-                .then(entryDOM.entryLog(API.journalEntries))
+                .then(() => {
+                    return API.getJournalEntries()
+                }).then((response) => {
+                    displayMoodEntries.clearEntryLog();
+                    entryDOM.entryLog(response)
+                })
+                    
+    
                 //else if edit button functionality clicked ad has id that starts with "edit..."
             } else if (clickEvent.target.id.startsWith("editEntry--")) {
                 //turn the string into array with .split() and separate by the "--"; in array "--" will be the first index and therefore must specify the index 

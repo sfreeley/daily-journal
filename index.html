@@ -48,56 +48,71 @@
                 <option class="optionChoice" value="humbled">Humbled</option>
                 <option class="optionChoice" value="relieved">Relieved</option>
             </select>
-        </fieldset>
+        </fieldset>  
     </form>
-
+    
     <div>
-        <button class="submitButton" type="submit">Record Journal Entry</button>
+        <button class="submitButton" type="button">Record Journal Entry</button>
     </div>
+    
 
-    <fieldset class="flex-container--radioButtons">
-        <legend>Filter Journal Entries by Mood:</legend>
-        <div class="radioButtons">
-            <input class="inputRadio" type="radio" id="filterMood--happy" name="radioMood" value="happy"> 
-            <label class="radioLabel" for="filterMood">Happy</label>
+    <section class="container-filter">
+    
+        <fieldset class="flex-container--radioButtons">
+            <legend>Filter Journal Entries by Mood:</legend>
+            <div class="radioButtons">
+                <input class="inputRadio" type="radio" id="filterMood--showAll" name="radioMood" value="showAll">
+                <label class="radioLabel" for="filterMood">Show All Entries</label>
 
-            <input class="inputRadio" type="radio" id="filterMood--hopeful" name="radioMood" value="hopeful"> 
-            <label class="radioLabel" for="filterMood">Hopeful</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--frustrated" name="radioMood" value="frustrated"> 
-            <label class="radioLabel" for="filterMood">Frustrated</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--excited" name="radioMood" value="excited"> 
-            <label class="radioLabel" for="filterMood">Excited</label>
-
-            <input class="inputRadio"type="radio" id="filterMood--depressed" name="radioMood" value="depressed"> 
-            <label class="radioLabel"for="filterMood">Depressed</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--relieved" name="radioMood" value="relieved"> 
-            <label class="radioLabel"for="filterMood">Relieved</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--determined" name="radioMood" value="determined"> 
-            <label class="radioLabel" for="filterMood">Determined</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--appreciative" name="radioMood" value="appreciative"> 
-            <label class="radioLabel" for="filterMood">Appreciative</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--discouraged" name="radioMood" value="discouraged"> 
-            <label class="radioLabel" for="filterMood">Discouraged</label>
-
-            <input type="radio" id="filterMood--ecstatic" name="radioMood" value="ecstatic"> 
-            <label class="radioLabel" for="filterMood">Ecstatic</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--nervous" name="radioMood" value="nervous"> 
-            <label class="radioLabel" for="filterMood">Nervous</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--optimistic" name="radioMood" value="optimistic"> 
-            <label class="radioLabel" for="filterMood">Optimistic</label>
-
-            <input class="inputRadio" type="radio" id="filterMood--humbled" name="radioMood" value="humbled"> 
-            <label class="radioLabel" for="filterMood">Humbled</label>
-        </div>
-    </fieldset>
+                <input class="inputRadio" type="radio" id="filterMood--happy" name="radioMood" value="happy">
+                <label class="radioLabel" for="filterMood">Happy</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--hopeful" name="radioMood" value="hopeful">
+                <label class="radioLabel" for="filterMood">Hopeful</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--frustrated" name="radioMood" value="frustrated">
+                <label class="radioLabel" for="filterMood">Frustrated</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--excited" name="radioMood" value="excited">
+                <label class="radioLabel" for="filterMood">Excited</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--depressed" name="radioMood" value="depressed">
+                <label class="radioLabel" for="filterMood">Depressed</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--relieved" name="radioMood" value="relieved">
+                <label class="radioLabel" for="filterMood">Relieved</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--determined" name="radioMood" value="determined">
+                <label class="radioLabel" for="filterMood">Determined</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--appreciative" name="radioMood" value="appreciative">
+                <label class="radioLabel" for="filterMood">Appreciative</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--discouraged" name="radioMood" value="discouraged">
+                <label class="radioLabel" for="filterMood">Discouraged</label>
+    
+                <input type="radio" id="filterMood--ecstatic" name="radioMood" value="ecstatic">
+                <label class="radioLabel" for="filterMood">Ecstatic</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--nervous" name="radioMood" value="nervous">
+                <label class="radioLabel" for="filterMood">Nervous</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--optimistic" name="radioMood" value="optimistic">
+                <label class="radioLabel" for="filterMood">Optimistic</label>
+    
+                <input class="inputRadio" type="radio" id="filterMood--humbled" name="radioMood" value="humbled">
+                <label class="radioLabel" for="filterMood">Humbled</label>
+            </div>
+    
+        </fieldset>
+    
+        <fieldset class="flex-container--searchField">
+            <!-- <div class="search"> -->
+                <legend>Search journal entries:</legend>
+                <input class="searchInput" id="searchInput" placeholder="Enter search term"></input>
+            <!-- </div> -->
+        </fieldset>
+    </section>
 
     <article class="entryLog">
 
