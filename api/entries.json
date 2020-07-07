@@ -48,6 +48,13 @@
       "entry": "We can use variables and modules to break up CSS code; ie if using repeating styles and colors, can define these as variables as use them on specified CSS selectors ",
       "mood": "relieved",
       "id": 7
+    },
+    {
+      "date": "2020-07-06",
+      "concepts": "rendering to DOM; intro to REACT",
+      "entry": "Covered rendering HTML dynamically to the DOM; intro to REACT",
+      "mood": "happy",
+      "id": 8
     }
   ]
 }

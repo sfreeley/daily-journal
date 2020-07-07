@@ -52,24 +52,27 @@ saveButton.addEventListener("click", clickEvent => {
     //which will itself take in the new user edited input 
         API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput))
             .then(() => {
+               return API.getJournalEntries() 
+            }).then((response) => {
                 //clear all inputs fields
-                this.clearInputFields();
+                events.clearInputFields();
                 //display the edited entry
-                entryDOM.entryLog()
+                return entryDOM.entryLog(response)
             })
+        
     } else {
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
         //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
         const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
         //passes in newly created journal object (based on user input value) to save it to the DOM
         API.saveJournalEntry(generateEntry)
-        // .then(
-        // () => {
-        // return API.getJournalEntries()
-        // })
-        // .then(() => {
-        // entryDOM.entryLog(API.journalEntries)
-        // });
+         .then(
+         () => {
+         return API.getJournalEntries()
+         })
+         .then(() => {
+         entryDOM.entryLog(API.journalEntries)
+         });
     }      
 });
 //invoking filtering by mood radio button
