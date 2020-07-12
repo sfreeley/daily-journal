@@ -9,7 +9,7 @@ const journalRepresentation = {
             <ul>
                 <li> <strong>Date:</strong> ${journalObject.date}</li>
                 <li> <strong>Concepts:</strong> ${journalObject.concepts}</li>
-                <li> <strong>Mood:</strong> ${journalObject.mood}</li>
+                <li> <strong>Mood:</strong> ${journalObject.moodChoice.label}</li>
                 <li> <strong>Entry:</strong> ${journalObject.entry}</li>
             </ul>
         </div>
@@ -17,6 +17,10 @@ const journalRepresentation = {
         <button id="deleteEntry--${journalObject.id}">Delete Entry</button>
         <hr>
         `
+    },
+
+    moodSelectOptionConversion (moodObject) {
+        return `<option class="optionChoice" value="${moodObject.label}">${moodObject.label}</option>`
     }
 }
 

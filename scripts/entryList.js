@@ -20,10 +20,15 @@ const entryDOM = {
                 journalArticleElement.innerHTML += journalHTML;
 
             }
-       
+    },
 
-        
-
+    moodSelectOption(moodsArray) {
+        for (const currentMoodObject of moodsArray) {
+            const moodChoiceHTML = journalRepresentation.moodSelectOptionConversion(currentMoodObject);
+            const moodSelectElement = document.querySelector("#mood")
+            moodSelectElement.innerHTML += moodChoiceHTML
+           
+        }
     }
 
 }

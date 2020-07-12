@@ -9,9 +9,12 @@ import createJournalEntry from './createEntry.js'
 import displayMoodEntries from './filter.js'
 import events from './events.js'
 
-
+//this will dynamically render mood options from dropdown
+API.getMoods().then(() => {
+    entryDOM.moodSelectOption(API.moodsArray)
+})
 //this will get the entries from API and once info received will render them to DOM
-API.getJournalEntries().then(() => entryDOM.entryLog(API.journalEntries))
+API.getJournalEntries().then(entryDOM.entryLog(API.journalEntries))
 
 // function to give user alert if they type in more than 50 characters into concept field
 const conceptFieldMaxLength = () => {
@@ -50,28 +53,29 @@ saveButton.addEventListener("click", clickEvent => {
     
     //invoke the update journal entry function (from data.js) that will take in journalobject's ID value and our create new journal object function (from createEntry.js) as arguments
     //which will itself take in the new user edited input 
-        API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput))
+        API.updateJournalEntry(hiddenEntryId.value, createJournalEntry(dateInput, conceptsInput, entryInput, moodInput, API.moodsArray ))
             .then(() => {
                return API.getJournalEntries() 
             }).then((response) => {
                 //clear all inputs fields
                 events.clearInputFields();
+                displayMoodEntries.clearEntryLog();
                 //display the edited entry
-                return entryDOM.entryLog(response)
+                entryDOM.entryLog(response)
             })
-        
     } else {
         //if everything is filled out, invoke POST function once button clicked and pass it the object made by factory function on createEntry.js page
         //invoking generateJournalEntry factory function from creatEntry.js and passing user's input values as arguments
-        const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput)
+        const generateEntry = createJournalEntry(dateInput, conceptsInput, entryInput, moodInput, API.moodsArray)
         //passes in newly created journal object (based on user input value) to save it to the DOM
         API.saveJournalEntry(generateEntry)
          .then(
          () => {
          return API.getJournalEntries()
          })
-         .then(() => {
-         entryDOM.entryLog(API.journalEntries)
+         .then((response) => {
+            displayMoodEntries.clearEntryLog();
+            entryDOM.entryLog(response)
          });
     }      
 });
@@ -84,6 +88,10 @@ events.registerListener();
 
 //invoking searchField method to search for values
 displayMoodEntries.searchField()
+
+//invoking getMoods
+// API.getMoods()
+
 
 
 
