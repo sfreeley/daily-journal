@@ -19,7 +19,7 @@ const API = {
     },
     // this is POST function that saves your object to the API and will take in a journal entry object created by factory function)
     saveJournalEntry (newEntryObject) {
-        return fetch("http://localhost:3000/entries?_expand=mood", {
+        return fetch("http://localhost:3000/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,13 +29,13 @@ const API = {
     },
 
     deleteJournalEntry (journalEntryId) {
-        return fetch(`http://localhost:3000/entries/${journalEntryId}?_expand=mood`, {
+        return fetch(`http://localhost:3000/entries/${journalEntryId}`, {
             method: "DELETE"
         })
         .then(response => response.json())
     },
     updateJournalEntry (journalEntryId, journalObj) {
-        return fetch(`http://localhost:3000/entries/${journalEntryId}?_expand=mood`, {
+        return fetch(`http://localhost:3000/entries/${journalEntryId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

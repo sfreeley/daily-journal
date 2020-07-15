@@ -87,6 +87,28 @@
       },
       "moodId": 1,
       "id": 8
+    },
+    {
+      "date": "2020-07-15",
+      "concepts": "Lifting State; Login/logout functionality",
+      "entry": "Covered how to lift state where we can reuse properties of the parent component in the children components",
+      "moodId": 7,
+      "moodChoice": {
+        "id": 7,
+        "label": "determined"
+      },
+      "id": 9
+    },
+    {
+      "date": "2020-07-23",
+      "concepts": "tttt",
+      "entry": "sttttt",
+      "moodId": 2,
+      "moodChoice": {
+        "id": 2,
+        "label": "hopeful"
+      },
+      "id": 10
     }
   ],
   "moods": [

@@ -1,6 +1,6 @@
 //defining a factory function responsible for generating journal entry object
 
-const createJournalEntry = (date, concepts, entry, moodChoice, moodsArray) => {
+const createJournalEntry = (date, concepts, entry, moodsArray) => {
     const getMoodId = moodsArray.find(moods => {
         let moodId = moods.id
        if(moods.label === moodChoice) {
@@ -14,9 +14,14 @@ const createJournalEntry = (date, concepts, entry, moodChoice, moodsArray) => {
         concepts,
         entry,
         moodId: getMoodId.id,
-        moodChoice: getMoodId
+        
     }
     return journalEntryObject;
 }
 
 export default createJournalEntry;
+
+//in created object
+// moodChoice: getMoodId
+//pass this in as argument
+// moodChoice

@@ -76,6 +76,7 @@ saveButton.addEventListener("click", clickEvent => {
          .then((response) => {
             displayMoodEntries.clearEntryLog();
             entryDOM.entryLog(response)
+            events.clearInputFields();
          });
     }      
 });

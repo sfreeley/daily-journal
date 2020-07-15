@@ -54,7 +54,7 @@ const displayMoodEntries = {
                 //.filter() array method to iterate through individual journal entry objects and
                 //return only those entries (which have to be converted from its array of values to a string)
                 //that match the search term declared above (toLowerCase() method will make the search for either capital or lowercase )
-                //once refactored json mood data, have to also filter through moodChoice's value because now it is an object
+                //once refactored json mood data, have to also filter through moodChoice's values because now it is an object
                 filteredEntriesArray = API.journalEntries.filter(entries => {
                     let entryValues = Object.values(entries)
                     let entryMoodValues = Object.values(entries.moodChoice)
