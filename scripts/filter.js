@@ -27,7 +27,7 @@ const displayMoodEntries = {
                 } else {
                     //filtering through journal entries array and returning only entries to new filteredMoodArray that return true with specified user mood choice (via radio button click);
                     filteredMoodArray = API.journalEntries.filter(entry => {
-                        return userMoodChoice === entry.moodChoice.label;
+                        return userMoodChoice === entry.mood.label;
                     })
                     console.log(filteredMoodArray)
                     //invoking clearing entry log section so each time radio button clicked it clears previous entries out 
@@ -57,7 +57,7 @@ const displayMoodEntries = {
                 //once refactored json mood data, have to also filter through moodChoice's values because now it is an object
                 filteredEntriesArray = API.journalEntries.filter(entries => {
                     let entryValues = Object.values(entries)
-                    let entryMoodValues = Object.values(entries.moodChoice)
+                    let entryMoodValues = Object.values(entries.mood)
 
                     return (entryValues.join()
                         .toLowerCase()

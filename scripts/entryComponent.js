@@ -9,7 +9,7 @@ const journalRepresentation = {
             <ul>
                 <li> <strong>Date:</strong> ${journalObject.date}</li>
                 <li> <strong>Concepts:</strong> ${journalObject.concepts}</li>
-                <li> <strong>Mood:</strong> ${journalObject.moodChoice.label}</li>
+                <li> <strong>Mood:</strong> ${journalObject.mood.label}</li>
                 <li> <strong>Entry:</strong> ${journalObject.entry}</li>
             </ul>
         </div>
